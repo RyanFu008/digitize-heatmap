@@ -57,7 +57,9 @@ function setupMouseTracking(canvas) {
     const nearCursorCanvas = document.getElementById('near-cursor');
     const nearCursorContext = nearCursorCanvas.getContext('2d');
 
-    canvas.addEventListener('mousemove', function(event) {
+    const highlightCanvas = document.getElementById('cursor-highlight');
+
+    highlightCanvas.addEventListener('mousemove', function(event) {
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
