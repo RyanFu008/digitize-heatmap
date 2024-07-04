@@ -1,0 +1,70 @@
+.custom-navbar {
+    background-color: #00ff08 !important; /* Change this to your desired color */
+    color: #ee00ff !important;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #d400ff !important;
+    padding-top: 20px;
+}
+
+.sidebar .btn {
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #ff0000 !important;
+    border-color: #00e1ff !important;
+    color: #ee00ff;
+    height: 72px;
+}
+
+.canvas-stack-container {
+    position: relative;
+    margin-top: 20px !important;
+    width: 1000px;  /* Match canvas width */
+    height: 1000px; /* Match canvas height */
+    margin: 0 auto;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid #000; /* Adding a border around each canvas */
+}
+
+.input-height {
+    height: 72px; /* Match button height */
+    box-sizing: border-box; /* Ensure padding is included in height */
+}
+
+.right-canvas-container {
+    position: relative;
+    margin-top: 20px !important;
+}
+
+body {
+    background-color: #f8f7ff !important;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.me-2 {
+    margin-right: 0.5rem; /* Adjust spacing as needed */
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem; /* Adjust spacing as needed */
+}
+
+.form-control {
+    width: 100%;
+}
