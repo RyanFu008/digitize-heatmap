@@ -28,6 +28,10 @@
     margin: 0 auto;
 }
 
+#cursor-highlight {
+    z-index: 1;
+}
+
 canvas {
     position: absolute;
     top: 0;
@@ -67,4 +71,10 @@ body {
 
 .form-control {
     width: 100%;
+}
+
+/* Set the size of the near-cursor canvas */
+#near-cursor {
+    width: 200px;
+    height: 200px;
 }

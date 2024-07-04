@@ -18,3 +18,9 @@ document.getElementById('pageButton').addEventListener('click', function(event) 
     const pageChangedEvent = new CustomEvent('pageChanged', { detail: { page } });
     document.dispatchEvent(pageChangedEvent);
 });
+
+document.getElementById('cropButton').addEventListener('click', function(event) {
+    sharedData.crop = true; crop = 1;
+    const cropEvent = new CustomEvent('crop', { detail: { crop } });
+    document.dispatchEvent(cropEvent);
+});
