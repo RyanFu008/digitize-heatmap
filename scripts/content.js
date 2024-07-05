@@ -1,4 +1,3 @@
-// Ensure pdfjsLib is initialized
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
 
 document.addEventListener('fileUploaded', function(event) {
@@ -102,12 +101,54 @@ function setupMouseTracking(canvas) {
         nearCursorContext.moveTo(100, 0); // Vertical line
         nearCursorContext.lineTo(100, 200);
         nearCursorContext.stroke();
-
-        // Draw a fat dot at the center
-        nearCursorContext.beginPath();
-        nearCursorContext.arc(100, 100, 10, 0, 2 * Math.PI); // Draw a circle at the center
-        nearCursorContext.fillStyle = 'red'; // Set the fill color to red
-        nearCursorContext.fill(); // Fill the circle
-        nearCursorContext.stroke(); // Stroke the circle
     });
+}
+
+function cropCanvas(startX, startY, endX, endY) {
+    const canvas = document.getElementById('content');
+    const context = canvas.getContext('2d');
+
+    // Calculate top-left and bottom-right corners from any two points
+    const cropStartX = Math.min(startX, endX);
+    const cropStartY = Math.min(startY, endY);
+    const cropEndX = Math.max(startX, endX);
+    const cropEndY = Math.max(startY, endY);
+
+    // Calculate width and height of the cropped area
+    const cropWidth = cropEndX - cropStartX;
+    const cropHeight = cropEndY - cropStartY;
+
+    // Get the image data for the cropped area
+    const imageData = context.getImageData(cropStartX, cropStartY, cropWidth, cropHeight);
+
+    // Create a new canvas for the cropped area
+    const croppedCanvas = document.createElement('canvas');
+    const croppedContext = croppedCanvas.getContext('2d');
+    croppedCanvas.width = cropWidth;
+    croppedCanvas.height = cropHeight;
+
+    const canvas1 = document.getElementById('cursor-highlight');
+    const canvas2 = document.getElementById('highlight-points');
+    canvas1.height = cropHeight;
+    canvas1.width = cropWidth;
+    canvas2.height =  cropHeight;
+    canvas2.width = cropWidth;
+
+    // Put the cropped image data onto the new canvas
+    croppedContext.putImageData(imageData, 0, 0);
+
+    // Replace the content of the original canvas with the cropped canvas
+    canvas.width = cropWidth;
+    canvas.height = cropHeight;
+    context.drawImage(croppedCanvas, 0, 0);
+}
+
+function getColorAtPosition(x, y) {
+    const canvas = document.getElementById('content');
+    const context = canvas.getContext('2d');
+    const imageData = context.getImageData(x, y, 1, 1);
+    const r = imageData.data[0];
+    const g = imageData.data[1];
+    const b = imageData.data[2];
+    return `rgb(${r},${g},${b})`;
 }

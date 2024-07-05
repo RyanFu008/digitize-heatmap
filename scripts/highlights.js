@@ -5,15 +5,6 @@ let hm = false;
 const canvas = document.getElementById('cursor-highlight');
 const context = canvas.getContext('2d');
 
-canvas.addEventListener('mousemove', function(event) {
-    console.log("moving!!!");
-    drawHighlights();
-    const mousex = event.offsetX;
-    const mousey = event.offsetY;
-    drawHighlightPoint(mousex, mousey, true);
-});
-
-
 function getPoint() {
     hm = true;
     return new Promise((resolve) => {
@@ -25,38 +16,37 @@ function getPoint() {
     });
 }
 
-document.addEventListener('crop', async function (event) {
-    console.log("cropping!");
-    const point = await getPoint();
-    highlights.push(point);
-    drawHighlights();
-});
-
-function drawHighlightPoint(x, y, temporary = false) {
-    context.beginPath();
-    context.arc(x, y, 5, 0, 2 * Math.PI);
-    context.fillStyle = temporary ? 'blue' : 'red';
-    context.fill();
-    context.closePath();
-
-    context.beginPath();
-    context.moveTo(x, 0);
-    context.lineTo(x, canvas.height);
-    context.strokeStyle = 'black';
-    context.stroke();
-    context.closePath();
-
-    context.beginPath();
-    context.moveTo(0, y);
-    context.lineTo(canvas.width, y);
-    context.strokeStyle = 'black';
-    context.stroke();
-    context.closePath();
-}
-
-function drawHighlights() {
+canvas.addEventListener('mousemove', function (event) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < highlights.length; i++) {
-        drawHighlightPoint(highlights[i].x, highlights[i].y);
+    // Go through all highlights, draw
+    for (let highlight of highlights) {
+        context.beginPath();
+        context.moveTo(0, highlight.y);
+        context.lineTo(canvas.width, highlight.y);
+        context.moveTo(highlight.x, 0);
+        context.lineTo(highlight.x, canvas.height);
+        context.strokeStyle = 'black';
+        context.lineWidth = 1;  // Ensure line width
+        context.stroke();
+        
+        context.beginPath();
+        context.arc(highlight.x, highlight.y, 5, 0, 2 * Math.PI);
+        context.fillStyle = 'red';
+        context.fill();
     }
-}
+    if (hm) {
+        context.beginPath();
+        context.moveTo(0, event.offsetY);
+        context.lineTo(canvas.width, event.offsetY);
+        context.moveTo(event.offsetX, 0);
+        context.lineTo(event.offsetX, canvas.height);
+        context.strokeStyle = 'black';
+        context.lineWidth = 1;  // Ensure line width
+        context.stroke();
+        
+        context.beginPath();
+        context.arc(event.offsetX, event.offsetY, 5, 0, 2 * Math.PI);
+        context.fillStyle = 'blue';
+        context.fill();
+    }
+});

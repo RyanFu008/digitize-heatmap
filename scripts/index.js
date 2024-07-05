@@ -10,7 +10,14 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
         window.sharedData.uploadedFile = file;
         const fileUploadedEvent = new CustomEvent('fileUploaded', { detail: { file } });
         document.dispatchEvent(fileUploadedEvent);
+        document.getElementById('pageInput').value = 1;
+
     }
+});
+
+document.getElementById('discreteButton').addEventListener('click', function(event) {
+    const discreteEvent = new CustomEvent('discrete');
+    document.dispatchEvent(discreteEvent);
 });
 
 document.getElementById('pageButton').addEventListener('click', function(event) {
