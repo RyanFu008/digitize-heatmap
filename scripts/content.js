@@ -144,11 +144,12 @@ function cropCanvas(startX, startY, endX, endY) {
 }
 
 function getColorAtPosition(x, y) {
+    console.log(x,y);
     const canvas = document.getElementById('content');
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(x, y, 1, 1);
     const r = imageData.data[0];
     const g = imageData.data[1];
     const b = imageData.data[2];
-    return `rgb(${r},${g},${b})`;
+    return { r, g, b };
 }

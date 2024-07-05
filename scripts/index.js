@@ -1,4 +1,5 @@
 window.sharedData = {};
+sharedData.colorMapType = "none";
 
 document.getElementById('uploadButton').addEventListener('click', function() {
     document.getElementById('fileInput').click();
@@ -30,4 +31,15 @@ document.getElementById('cropButton').addEventListener('click', function(event) 
     sharedData.crop = true; crop = 1;
     const cropEvent = new CustomEvent('crop', { detail: { crop } });
     document.dispatchEvent(cropEvent);
+});
+
+document.getElementById('getData').addEventListener('click', function(event) {
+    if (sharedData.colorMapType === 'none') {
+        alert('Please select a colormap type first.');
+        return;
+    }
+    if (sharedData.colorMapType === 'discrete') {
+        const discreteDataEvent = new CustomEvent('discreteData');
+        document.dispatchEvent(discreteDataEvent);
+    }
 });
