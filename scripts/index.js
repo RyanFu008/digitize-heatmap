@@ -1,5 +1,6 @@
 window.sharedData = {};
 sharedData.colorMapType = "none";
+sharedData.tolerance = 0;
 
 document.getElementById('uploadButton').addEventListener('click', function() {
     document.getElementById('fileInput').click();
@@ -12,7 +13,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
         const fileUploadedEvent = new CustomEvent('fileUploaded', { detail: { file } });
         document.dispatchEvent(fileUploadedEvent);
         document.getElementById('pageInput').value = 1;
-
+        document.getElementById('toleranceInput').value = 0;
     }
 });
 
@@ -42,4 +43,8 @@ document.getElementById('getData').addEventListener('click', function(event) {
         const discreteDataEvent = new CustomEvent('discreteData');
         document.dispatchEvent(discreteDataEvent);
     }
+});
+
+document.getElementById("toleranceInput").addEventListener("change", function(event) {
+    sharedData.tolerance = parseInt(document.getElementById("toleranceInput").value);
 });
