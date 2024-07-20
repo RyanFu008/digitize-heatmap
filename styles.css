@@ -1,11 +1,16 @@
+.navbar-brand {
+    color: #ecf0f1 !important; /* Light gray */
+
+}
+
 .custom-navbar {
-    background-color: #00ff08 !important; /* Change this to your desired color */
-    color: #ee00ff !important;
+    background-color: #2c3e50 !important; /* Dark slate blue */
+    color: #ecf0f1 !important; /* Light gray */
 }
 
 .sidebar {
     height: 100vh;
-    background-color: #d400ff !important;
+    background-color: #34495e !important; /* Slightly lighter slate blue */
     padding-top: 20px;
 }
 
@@ -14,9 +19,9 @@
 }
 
 .btn {
-    background-color: #ff0000 !important;
-    border-color: #00e1ff !important;
-    color: #ee00ff;
+    background-color: #2980b9 !important; /* Bright blue */
+    border-color: #1abc9c !important; /* Teal */
+    color: #ecf0f1; /* Light gray */
     height: 72px;
 }
 
@@ -36,7 +41,7 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    border: 2px solid #000; /* Adding a border around each canvas */
+    border: 2px solid #2980b9; /* Bright blue border */
 }
 
 .input-height {
@@ -50,7 +55,7 @@ canvas {
 }
 
 body {
-    background-color: #f8f7ff !important;
+    background-color: #ecf0f1 !important; /* Light gray */
 }
 
 .d-flex {
