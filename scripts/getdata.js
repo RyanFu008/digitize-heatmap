@@ -28,7 +28,7 @@ document.addEventListener('discreteData', function(event) {
                     }
                 }
                 if (closestDist <= tolerance) {
-                    row.push(closest);
+                    row.push(truncateToHundredths(closest));
                 } else {
                     row.push(0);
                 }
@@ -64,4 +64,9 @@ function hexToRgb(hex) {
     const g = parseInt(hex.substring(3, 5), 16);
     const b = parseInt(hex.substring(5, 7), 16);
     return { r, g, b };
+}
+
+function truncateToHundredths(num) {
+    let factor = Math.pow(10, 2); // 10^2 = 100
+    return Math.trunc(num * factor) / factor;
 }

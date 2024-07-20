@@ -1,6 +1,5 @@
 .navbar-brand {
     color: #ecf0f1 !important; /* Light gray */
-
 }
 
 .custom-navbar {
@@ -14,15 +13,24 @@
     padding-top: 20px;
 }
 
-.sidebar .btn {
+.sidebar .btn, .sidebar .dropdown-toggle, .sidebar .form-control {
     margin-bottom: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {
     background-color: #2980b9 !important; /* Bright blue */
     border-color: #1abc9c !important; /* Teal */
     color: #ecf0f1; /* Light gray */
-    height: 72px;
+}
+
+.dropdown-toggle {
+    background-color: #2980b9 !important; /* Bright blue */
+    border-color: #1abc9c !important; /* Teal */
+    color: #ecf0f1; /* Light gray */
 }
 
 .canvas-stack-container {
@@ -45,7 +53,7 @@ canvas {
 }
 
 .input-height {
-    height: 72px; /* Match button height */
+    height: 50px; /* Match button height */
     box-sizing: border-box; /* Ensure padding is included in height */
 }
 
