@@ -22,6 +22,20 @@ document.getElementById('discreteButton').addEventListener('click', function(eve
     document.dispatchEvent(discreteEvent);
 });
 
+document.getElementById('next').addEventListener('click', function(event) {
+    let page = parseInt(document.getElementById('pageInput').value);
+    page++;
+    document.getElementById('pageInput').value = page;
+    document.dispatchEvent(new CustomEvent('pageChanged', { detail: { page } }));
+});
+
+document.getElementById('prev').addEventListener('click', function(event) {
+    let page = parseInt(document.getElementById('pageInput').value);
+    page--;
+    document.getElementById('pageInput').value = page;
+    document.dispatchEvent(new CustomEvent('pageChanged', { detail: { page } }));
+});
+
 document.getElementById('pageButton').addEventListener('click', function(event) {
     const page = parseInt(document.getElementById('pageInput').value);
     const pageChangedEvent = new CustomEvent('pageChanged', { detail: { page } });
