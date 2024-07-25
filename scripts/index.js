@@ -35,6 +35,10 @@ document.getElementById('prev').addEventListener('click', function(event) {
     document.getElementById('pageInput').value = page;
     document.dispatchEvent(new CustomEvent('pageChanged', { detail: { page } }));
 });
+document.getElementById('keyEndpointsButton').addEventListener('click', function(event) {
+    const discreteEvent = new CustomEvent('continuous');
+    document.dispatchEvent(discreteEvent);
+});
 
 document.getElementById('pageButton').addEventListener('click', function(event) {
     const page = parseInt(document.getElementById('pageInput').value);
@@ -54,6 +58,10 @@ document.getElementById('getData').addEventListener('click', function(event) {
         return;
     }
     if (sharedData.colorMapType === 'discrete') {
+        const discreteDataEvent = new CustomEvent('discreteData');
+        document.dispatchEvent(discreteDataEvent);
+    }
+    if (sharedData.colorMapType === 'continuous') {
         const discreteDataEvent = new CustomEvent('discreteData');
         document.dispatchEvent(discreteDataEvent);
     }
