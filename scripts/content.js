@@ -1,5 +1,5 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
-
+let scale = 1;
 document.addEventListener('fileUploaded', function(event) {
     const file = event.detail.file;
     const reader = new FileReader();
@@ -60,9 +60,9 @@ function setupMouseTracking(canvas) {
 
     highlightCanvas.addEventListener('mousemove', function(event) {
         const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
+        const x = (event.clientX - rect.left) / scale;
+        const y = (event.clientY - rect.top) / scale;
+        
         // Calculate the top-left corner of the 20x20 pixel area centered around the cursor
         const startX = Math.max(0, x - 10);
         const startY = Math.max(0, y - 10);
@@ -153,3 +153,27 @@ function getColorAtPosition(x, y) {
     const b = imageData.data[2];
     return { r, g, b };
 }
+
+
+
+document.addEventListener('zoomIn', function(event) {
+    //update the css to be 10% bigger
+    const canvas = document.getElementById('content');
+    scale += 0.1;
+    canvas.style.transform = `scale(${scale})`;
+    const canvas1 = document.getElementById('cursor-highlight');
+    canvas1.style.transform = `scale(${scale})`;
+    const canvas2 = document.getElementById('highlight-points');
+    canvas2.style.transform = `scale(${scale})`;
+});
+
+document.addEventListener('zoomOut', function(event) {
+    //update the css to be 10% smaller
+    const canvas = document.getElementById('content');
+    scale -= 0.1;
+    canvas.style.transform = `scale(${scale})`;
+    const canvas1 = document.getElementById('cursor-highlight');
+    canvas1.style.transform = `scale(${scale})`;
+    const canvas2 = document.getElementById('highlight-points');
+    canvas2.style.transform = `scale(${scale})`;
+});

@@ -7,14 +7,17 @@ document.addEventListener('discreteData', function(event) {
         alert('Image too large to process (more than 1 million pixels). Please crop the image first.');
         return;
     }
+
+    var logarithmic = sharedData.logarithmic;
+
     var array2d = [];
-    for (let i = 0; i < height; i++) { // Iterate over height first
+    for (let i = 0; i < height; i++) { // Iterate over height first~
         var row = [];
         for (let j = 0; j < width; j++) { // Then iterate over width
             var color = getColorAtPosition(j, i); // Correct order of coordinates
             var hexval = rgbToHex(color.r, color.g, color.b);
             if (sharedData.colorMap.has(hexval)) {
-                row.push(sharedData.colorMap.get(hexval));
+                row.push(truncateToHundredths(sharedData.colorMap.get(hexval))); // Ensure truncation here
             } else {
                 var tolerance = sharedData.tolerance;
                 var closest = 0;
@@ -30,12 +33,16 @@ document.addEventListener('discreteData', function(event) {
                 if (closestDist <= tolerance) {
                     row.push(truncateToHundredths(closest));
                 } else {
-                    row.push(0);
+                    row.push(-1);
                 }
             }
         }
         array2d.push(row);
     }
+
+    // Fill -1 with closest non -1 value using BFS
+    if (!sharedData.mask) {fillClosestValues(array2d, width, height);}
+
     var csv = 'data:text/csv;charset=utf-8,';
     array2d.forEach(function(row) {
         csv += row.join(',');
@@ -69,4 +76,29 @@ function hexToRgb(hex) {
 function truncateToHundredths(num) {
     let factor = Math.pow(10, 2); // 10^2 = 100
     return Math.trunc(num * factor) / factor;
+}
+
+function fillClosestValues(array, width, height) {
+    let directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    let queue = [];
+
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            if (array[i][j] !== -1) {
+                queue.push([i, j]);
+            }
+        }
+    }
+
+    while (queue.length > 0) {
+        let [x, y] = queue.shift();
+        for (let [dx, dy] of directions) {
+            let nx = x + dx;
+            let ny = y + dy;
+            if (nx >= 0 && ny >= 0 && nx < height && ny < width && array[nx][ny] === -1) {
+                array[nx][ny] = array[x][y];
+                queue.push([nx, ny]);
+            }
+        }
+    }
 }

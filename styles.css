@@ -21,7 +21,7 @@ body {
 
 .sidebar .btn, .sidebar .dropdown-toggle, .sidebar .form-control {
     margin-bottom: 10px;
-    height: 50px;
+    height: 72px; /* Ensure all buttons have the same height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,6 @@ body {
     background-color: #2980b9 !important; /* Bright blue */
     border-color: #1abc9c !important; /* Teal */
     color: #ecf0f1; /* Light gray */
-    height: 72px;
     transition: all 0.3s ease; /* Added transition for smooth effect */
 }
 
@@ -63,10 +62,11 @@ canvas {
     top: 0;
     left: 0;
     border: 2px solid #2980b9; /* Bright blue border */
+    transform-origin: 0 0; /* Set transform origin to top left */
 }
 
 .input-height {
-    height: 50px; /* Match button height */
+    height: 72px; /* Match button height */
     box-sizing: border-box; /* Ensure padding is included in height */
 }
 

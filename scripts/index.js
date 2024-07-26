@@ -1,6 +1,8 @@
 window.sharedData = {};
 sharedData.colorMapType = "none";
 sharedData.tolerance = 0;
+sharedData.logarithmic = false;
+sharedData.mask = true;
 
 document.getElementById('uploadButton').addEventListener('click', function() {
     document.getElementById('fileInput').click();
@@ -69,4 +71,32 @@ document.getElementById('getData').addEventListener('click', function(event) {
 
 document.getElementById("toleranceInput").addEventListener("change", function(event) {
     sharedData.tolerance = parseInt(document.getElementById("toleranceInput").value);
+});
+
+document.getElementById('scaleType').addEventListener('click', function(event) {
+    sharedData.logarithmic = !sharedData.logarithmic;
+    if (sharedData.logarithmic) {
+        document.getElementById('scaleType').innerText = 'Logarithmic Scale';
+    } else {
+        document.getElementById('scaleType').innerText = 'Linear Scale';
+    }
+});
+
+document.getElementById('zoomIn').addEventListener('click', function(event) {
+    const zoomEvent = new CustomEvent('zoomIn');
+    document.dispatchEvent(zoomEvent);
+});
+
+document.getElementById('zoomOut').addEventListener('click', function(event) {
+    const zoomEvent = new CustomEvent('zoomOut');
+    document.dispatchEvent(zoomEvent);
+});
+
+document.getElementById("maskOrNot").addEventListener("click", function(event) {
+    sharedData.mask = !sharedData.mask;
+    if (sharedData.mask) {
+        document.getElementById("maskOrNot").innerText = "Set Undefined to -1";
+    } else {
+        document.getElementById("maskOrNot").innerText = "Interpolate Undefined";
+    }
 });
