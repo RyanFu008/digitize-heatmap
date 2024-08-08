@@ -1,3 +1,3 @@
-# pdf-graph
+# rasterize-heatmap
 
-lightweight and flexible tool for getting graph data from pdfs.
+lightweight and flexible tool for rasterizing heatmpa data
