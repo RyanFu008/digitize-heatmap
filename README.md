@@ -21,5 +21,6 @@ row 3 pixel 1 value, row 3 pixel 2 value, row 3 pixel 3 value, ...
 
 [A demo can be found here.](http://ryanfu.me/rasterize-heatmap/demo-video.mp4)
 
-## Contributing
+## Author
 
+Ryan Fu \<ryanfu2008@gmail.com\>
