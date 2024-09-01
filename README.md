@@ -19,6 +19,7 @@ row 2 pixel 1 value, row 2 pixel 2 value, row 2 pixel 3 value, ...
 row 3 pixel 1 value, row 3 pixel 2 value, row 3 pixel 3 value, ...
 ```
 
-<video width="320" height="240" controls>
-  <source src="demo-video.mp4" type="video/mp4">
-</video>
+[A demo can be found here.](http://ryanfu.me/rasterize-heatmap/demo-video.mp4)
+
+## Contributing
+
