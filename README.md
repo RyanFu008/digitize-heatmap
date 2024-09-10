@@ -4,7 +4,7 @@ Lightweight and flexible tool for rasterizing heatmaps. A deployment can be foun
 
 ![Demonstration Image](assets/demo.png)
 
-Paper used for example: Liu, W., Zhang, M., Liu, Y., Cui, L., Sano, Y., & Xu, S. (2024). Chemical and isotopic constraints on fluid origin and genesis of geothermal systems in the Tingri-Tangra Yumco rift, southern Tibetan Plateau. Geothermal Energy, 12(1). https://doi.org/10.1186/s40517-024-00311-8
+The paper used for the above example is Liu et al: [https://doi.org/10.1186/s40517-024-00311-8](https://doi.org/10.1186/s40517-024-00311-8)
 
 ## Features
 
@@ -56,6 +56,6 @@ Improving functionality, documentation, or adding tests would be greatly appreci
 
 I'm Ryan Fu, currently a high school student (junior) at Amador Valley High School, and the main contributor/maintainer of this project.
 
-This project was sparked after a conversation I had with [Dr. Ahinoam Pollack](https://www.linkedin.com/in/ahinoam-pollack/), who is Head of Plant Operations for Zanskar Geothermal. Essentially, there was a need for a tool to easily extract quantitative data from heatmaps in scientific papers. The original idea was something similar to [WebPlotDigitizer](https://automeris.io/), but for heatmap graphs. I hope that it can grow beyond only one usecase, and can help significantly more people to come.
+This project was sparked after a conversation I had with [Dr. Ahinoam Pollack](https://www.linkedin.com/in/ahinoam-pollack/), who is Head of Research for Zanskar Geothermal. Essentially, there was a need for a tool to easily extract quantitative data from heatmaps in scientific papers. The original idea was something similar to [WebPlotDigitizer](https://automeris.io/), but for heatmap graphs. I hope that it can grow beyond only one usecase, and can help significantly more people to come.
 
 If you have any suggestions or feedback, you can reach out to me via email at <ryanfu2008@gmail.com>. I welcome any conversation!
