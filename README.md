@@ -8,6 +8,7 @@ Paper used for example: Liu, W., Zhang, M., Liu, Y., Cui, L., Sano, Y., & Xu, S.
 
 ## Features
 
+### 1 - PDF Navigation
 - Upload PDF
   - Only displays first page on upload
 - Traverse Page
@@ -18,6 +19,8 @@ Paper used for example: Liu, W., Zhang, M., Liu, Y., Cui, L., Sano, Y., & Xu, S.
   - Select two diagonally opposite corners of a rectangle to select a graph to get data for. Crops the view to only that rectangle. 
 - Zoom In/Out
   - Magnifies the current view by increasing the size (in pixel dimensions) of the view. Warning - this may result in bugs when used in between cropping two corners.
+
+### 2 - Data Extraction
 - Set Discrete Axis
   - Used for graphs with a discrete colormap. Enter the number of colors you wish to map, then click on an instance of that color and then enter a value to correspond to that color. After the previously entered number of points is chosen, the colormap is saved.
 - Choose Continuous Axis Endpoints
@@ -49,6 +52,10 @@ To install locally, simply git clone this repository. Everything is in HTML, Jav
 
 Improving functionality, documentation, or adding tests would be greatly appreciated!
 
-## Author
+## About
 
-I'm Ryan Fu, currently a high school student (junior) at Amador Valley High School. I don't have much experience with geothermal science, computer vision or open source in general, and would therefore greatly appreciate feedback or contributions of any kind. You can reach out to me via email at <ryanfu2008@gmail.com>.
+I'm Ryan Fu, currently a high school student (junior) at Amador Valley High School, and the main contributor/maintainer of this project.
+
+This project was sparked after a conversation I had with [Dr. Ahinoam Pollack](https://www.linkedin.com/in/ahinoam-pollack/), who is Head of Plant Operations for Zanskar Geothermal. Essentially, there was a need for a tool to easily extract quantitative data from heatmaps in scientific papers. The original idea was something similar to [WebPlotDigitizer](https://automeris.io/), but for heatmap graphs. I hope that it can grow beyond only one usecase, and can help significantly more people to come.
+
+If you have any suggestions or feedback, you can reach out to me via email at <ryanfu2008@gmail.com>. I welcome any conversation!
