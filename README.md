@@ -42,7 +42,9 @@ The paper used for the above example is Liu et al: [https://doi.org/10.1186/s405
 
 [A demo of some of the features can be found here.](http://ryanfu.me/digitize-heatmap/assets/demo-video.mp4)
 
-For a more detailed explanation, you can [read the wiki](https://github.com/RyanFu008/digitize-heatmap/wiki)
+## Documentation
+
+For a detailed explanation of how the code works, you can [read the wiki](https://github.com/RyanFu008/digitize-heatmap/wiki).
 
 ## Contributing
 
