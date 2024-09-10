@@ -1,6 +1,6 @@
-# rasterize-heatmap
+# digitize-heatmap
 
-Lightweight and flexible tool for rasterizing heatmaps. A deployment can be found at [ryanfu.me/rasterize-heatmap/](http://ryanfu.me/rasterize-heatmap/).
+Lightweight and flexible tool for digitizing heatmaps. A deployment can be found at [ryanfu.me/digitize-heatmap/](http://ryanfu.me/digitize-heatmap/).
 
 ![Demonstration Image](assets/demo.png)
 
@@ -40,9 +40,9 @@ The paper used for the above example is Liu et al: [https://doi.org/10.1186/s405
   Row 3 Column 1 Value, Row 3 Column 2 Value, Row 3 Column 3 Value, ...
   ```
 
-[A demo of some of the features can be found here.](http://ryanfu.me/rasterize-heatmap/assets/demo-video.mp4)
+[A demo of some of the features can be found here.](http://ryanfu.me/digitize-heatmap/assets/demo-video.mp4)
 
-For a more detailed explanation, you can [read the wiki](https://github.com/RyanFu008/rasterize-heatmap/wiki)
+For a more detailed explanation, you can [read the wiki](https://github.com/RyanFu008/digitize-heatmap/wiki)
 
 ## Contributing
 
