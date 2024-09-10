@@ -39,6 +39,8 @@ Paper used for example: Liu, W., Zhang, M., Liu, Y., Cui, L., Sano, Y., & Xu, S.
 
 [A demo of some of the features can be found here.](http://ryanfu.me/rasterize-heatmap/assets/demo-video.mp4)
 
+For a more detailed explanation, you can [read the wiki](https://github.com/RyanFu008/rasterize-heatmap/wiki)
+
 ## Contributing
 
 Contributions are very welcome. This project attempts to follow the [JavaScript Standard Style](https://github.com/standard/standard) to ensure consistent code format. 
